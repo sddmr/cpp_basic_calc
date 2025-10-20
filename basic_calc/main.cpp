@@ -1,59 +1,45 @@
 #include <iostream>
-
 using namespace std;
 
-
 int main() {
-    int n;
-    int m;
-    int k;
-    int count;
+    int num1, num2;
+    char operation;
+    float result;
 
-    cout << "enter first number: ";
-    cin >> n;
-    cout << "enter second number: ";
-    cin >> m;
-    bool istrue = false;
+    cout << "Enter the first number: ";
+    cin >> num1;
 
-    do {
-    cout << "select action";
-    cout << "1.Toplam -- 2.Çıkartma -- 3.Çarpma -- 4.Bölme" << endl;
-    cin >> k;
+    cout << "Enter the second number: ";
+    cin >> num2;
 
-    switch (k) {
-        case 1:
-            count = n + m;
-            cout << count << endl;
-            istrue = true;
-            break;
-        case 2:
-            count = n - m;
-            cout << count << endl;
-            istrue = true;
-            break;
-        case 3:
-            count = n * m;
-            cout << count << endl;
-            istrue = true;
-            break;
-        case 4:
-            count = n / m;
-            cout << count << endl;
-            istrue = true;
-            break;
-        case 5:
-            istrue = true;
-            cout << "Exit" << endl;
-            break;
+    cout << "Select the operation (+, -, *, /): ";
+    cin >> operation;
 
+    switch (operation) {
+        case '+':
+            result = num1 + num2;
+            cout << "Result: " << result << endl;
+            break;
+        case '-':
+            result = num1 - num2;
+            cout << "Result: " << result << endl;
+            break;
+        case '*':
+            result = num1 * num2;
+            cout << "Result: " << result << endl;
+            break;
+        case '/':
+            if (num2 != 0) {
+                result = (float) num1 / num2;
+                cout << "Result: " << result << endl;
+            } else {
+                cout << "Error: Division by zero.\n";
+            }
+            break;
         default:
-            cout << "Please enter a valid transaction" << endl;
+            cout << "Invalid operation!\n";
+            break;
     }
-
-
-     } while (!istrue);
-
-
 
     return 0;
 }
